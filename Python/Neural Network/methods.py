@@ -1,4 +1,4 @@
-from activation_functions import (ReLU, ReLU_derivative, Sigmoid)
+from activation_functions import (ReLU, ReLU_derivative, Softmax)
 import numpy as np
 
 def initialize_parameters(input_size, first_hidden_size, output_size):
@@ -26,7 +26,7 @@ def forward_propagation(X, parameters):
     z1 = np.dot(W1, X) + b1
     a1 = ReLU(z1)
     z2 = np.dot(W2, a1) + b2
-    a2 = Sigmoid(z2)
+    a2 = Softmax(z2)
 
     forward_cache = {'z1':z1,
                      'a1':a1,
@@ -45,8 +45,8 @@ def compute_cost(a2, y, parameters, penalty, epsilon=1e-8):
     n = y.shape[1]
 
     # Compute log probabilities
-    logprobs = np.multiply(y, np.log(a2)) + np.multiply((1 - y), np.log(1 - a2))
-    cost = -np.mean(logprobs)
+    logprobs = np.multiply(-np.log(a2 + epsilon), y)
+    cost = np.mean(logprobs)
 
     # Compute regularization term
     regularized_cost = np.divide(penalty, np.multiply(2, n)) * (np.sum(np.square(W1)) + np.sum(np.square(W2)))
