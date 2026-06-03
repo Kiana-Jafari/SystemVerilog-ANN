@@ -1,6 +1,6 @@
 # SystemVerilog Neural Network Inference
 
-A 2-4-2 neural network trained in Python and implemented in SystemVerilog using Q4.11 fixed-point arithmetic.
+A 2-4-2 neural network trained in Python and implemented in SystemVerilog using Q3.12 fixed-point arithmetic.
 
 ## Dataset
 
@@ -18,9 +18,9 @@ Output:
 
 ## Accuracy
 
-- Training Accuracy: 93.16%
+- Training Accuracy: 93.75%
 - Testing Accuracy: 92.98%
 
 ## Fixed Point Format
 
-Q4.11
+Q3.12
