@@ -7,6 +7,7 @@ def ReLU(z):
 def ReLU_derivative(z):
     return np.where(z > 0, 1, 0)
 
-# Sigmoid activation function: Computes probability distribution for output class
-def Sigmoid(z):
-    return 1 / (1 + (np.exp(-z)))
+# Softmax activation function: Computes probabilities for multiple classes using 'z' values
+def Softmax(z):
+    exp_z = np.exp(z - np.max(z, axis=0, keepdims=True))  # Avoid Overflow
+    return exp_z / np.sum(exp_z, axis=0, keepdims=True)
