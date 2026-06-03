@@ -1,6 +1,9 @@
 from activation_functions import (ReLU, ReLU_derivative, Softmax)
 import numpy as np
 
+
+
+
 def initialize_parameters(input_size, first_hidden_size, output_size):
 
     W1 = np.random.randn(first_hidden_size, input_size) * 0.01  # Multiply by a small factor
@@ -15,6 +18,9 @@ def initialize_parameters(input_size, first_hidden_size, output_size):
                   'b2':b2}
 
     return parameters
+
+
+
 
 def forward_propagation(X, parameters):
 
@@ -35,6 +41,9 @@ def forward_propagation(X, parameters):
 
     return a2, forward_cache
 
+
+
+
 def compute_cost(a2, y, parameters, penalty, epsilon=1e-8):
 
     # Get the model parameters (weights)
@@ -53,6 +62,9 @@ def compute_cost(a2, y, parameters, penalty, epsilon=1e-8):
     total_cost = cost + regularized_cost
 
     return total_cost
+
+
+
 
 def backward_propagation(X, y, parameters, forward_cache, penalty):
 
@@ -83,6 +95,9 @@ def backward_propagation(X, y, parameters, forward_cache, penalty):
 
     return gradients
 
+
+
+
 def initialize_adam(parameters):
 
     # Define two empty dictionaries for `Momentum`, and `RMSprop`, respectively
@@ -95,6 +110,9 @@ def initialize_adam(parameters):
         cache[key] = np.zeros_like(value)
 
     return velocity, cache
+
+
+
 
 def update_parameters(parameters, gradients, velocity, cache, learning_rate, decay_rate, current_iteration, momentum_coefficient=0.9, rmsprop_coefficient=0.999, epsilon=1e-8):
 
