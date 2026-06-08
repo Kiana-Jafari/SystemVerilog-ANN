@@ -1,0 +1,3 @@
+Compile: "iverilog -g2012 -o fileName fileName.sv"
+iverilog -g2012 -o test src\*.sv tb\*.sv
+Run & get output: "vvp fileName"
