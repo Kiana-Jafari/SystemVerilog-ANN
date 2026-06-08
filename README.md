@@ -1,6 +1,6 @@
 # SystemVerilog Neural Network Inference
 
-A 2-4-2 neural network trained in Python and implemented in SystemVerilog using Q3.12 fixed-point arithmetic.
+A 2-4-2 neural network trained in Python and implemented in SystemVerilog using Q3.12 fixed-point parameters.
 
 ## Dataset
 
