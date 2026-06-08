@@ -1,0 +1,84 @@
+$date
+	Mon Jun 08 09:37:20 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module mac_seq_tb $end
+$var wire 8 ! acc [7:0] $end
+$var reg 4 " X [3:0] $end
+$var reg 1 # clk $end
+$var reg 1 $ reset $end
+$var reg 4 % w [3:0] $end
+$scope module dut $end
+$var wire 4 & X [3:0] $end
+$var wire 1 # clk $end
+$var wire 1 $ reset $end
+$var wire 4 ' w [3:0] $end
+$var wire 8 ( product [7:0] $end
+$var reg 8 ) acc [7:0] $end
+$scope begin MAC $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx )
+b0 (
+b0 '
+b0 &
+b0 %
+1$
+0#
+b0 "
+bx !
+$end
+#5
+b0 !
+b0 )
+1#
+#10
+0#
+b110 (
+b11 %
+b11 '
+b10 "
+b10 &
+0$
+#15
+b110 !
+b110 )
+1#
+#20
+0#
+#25
+b1100 !
+b1100 )
+1#
+#30
+0#
+#35
+b10010 !
+b10010 )
+1#
+#40
+0#
+#45
+b11000 !
+b11000 )
+1#
+#50
+0#
+#55
+b11110 !
+b11110 )
+1#
+#60
+0#
