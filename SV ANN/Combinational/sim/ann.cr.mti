@@ -1,0 +1,46 @@
+C:/questasim64_2024.1/examples/project/src/neuron.sv {2 {vlog -work work -vopt -sv -stats=none C:/questasim64_2024.1/examples/project/src/neuron.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module neuron
+** Warning: C:/questasim64_2024.1/examples/project/src/neuron.sv(8): (vlog-13314) Defaulting port 'x' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: C:/questasim64_2024.1/examples/project/src/neuron.sv(9): (vlog-13314) Defaulting port 'w' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+
+Top level modules:
+	neuron
+
+} {} {}} C:/questasim64_2024.1/examples/project/src/dense_layer.sv {2 {vlog -work work -vopt -sv -stats=none C:/questasim64_2024.1/examples/project/src/dense_layer.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module dense_layer
+** Warning: C:/questasim64_2024.1/examples/project/src/dense_layer.sv(8): (vlog-13314) Defaulting port 'x' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: C:/questasim64_2024.1/examples/project/src/dense_layer.sv(9): (vlog-13314) Defaulting port 'w' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: C:/questasim64_2024.1/examples/project/src/dense_layer.sv(10): (vlog-13314) Defaulting port 'b' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+
+Top level modules:
+	dense_layer
+
+} {} {}} C:/questasim64_2024.1/examples/project/src/ReLU.sv {1 {vlog -work work -vopt -sv -stats=none C:/questasim64_2024.1/examples/project/src/ReLU.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module ReLU
+
+Top level modules:
+	ReLU
+
+} {} {}} C:/questasim64_2024.1/examples/project/tb/network_tb.sv {1 {vlog -work work -vopt -sv -stats=none C:/questasim64_2024.1/examples/project/tb/network_tb.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module network_tb
+
+Top level modules:
+	network_tb
+
+} {} {}} C:/questasim64_2024.1/examples/project/src/network.sv {2 {vlog -work work -vopt -sv -stats=none C:/questasim64_2024.1/examples/project/src/network.sv
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module network
+** Warning: C:/questasim64_2024.1/examples/project/src/network.sv(10): (vlog-13314) Defaulting port 'x' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: C:/questasim64_2024.1/examples/project/src/network.sv(11): (vlog-13314) Defaulting port 'w1' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: C:/questasim64_2024.1/examples/project/src/network.sv(12): (vlog-13314) Defaulting port 'b1' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: C:/questasim64_2024.1/examples/project/src/network.sv(14): (vlog-13314) Defaulting port 'w2' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: C:/questasim64_2024.1/examples/project/src/network.sv(15): (vlog-13314) Defaulting port 'b2' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+
+Top level modules:
+	network
+
+} {} {}}
