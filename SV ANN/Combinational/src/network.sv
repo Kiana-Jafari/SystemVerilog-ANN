@@ -52,7 +52,7 @@ module network #(
 
     endgenerate
 
-    // build the hidden layer using the previous layer's activations and return the logits
+    // build the output layer using the previous layer's activations and return the logits
     dense_layer #(
         .N_INPUTS(N_NEURONS), 
         .N_NEURONS(N_OUTPUTS), 
