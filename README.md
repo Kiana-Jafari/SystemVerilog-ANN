@@ -32,3 +32,14 @@ A classification report has also been included to verify the model performance u
 ## Fixed Point Representation
 
 The parameters of the neural network are represented in a Q3.12 fixed-point format. This choice of fixed-point representation ensures that the computations remain efficient for hardware implementation while maintaining the same accuracy in hardware.
+
+Implemented and verified:
+
+- Q3.12 fixed-point representation
+- Floating-point to fixed-point parameter quantization
+- Fixed-point multiplication and scaling
+- ReLU activation
+- Argmax classification
+- Fixed-point inference in Python
+
+The fixed-point implementation achieved identical classification accuracy to the original floating-point model.
