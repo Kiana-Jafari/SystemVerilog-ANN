@@ -51,14 +51,13 @@ def compute_cost(a2, y, parameters, penalty, epsilon=1e-8):
     W2 = parameters['W2']
 
     # Number of examples in the dataset
-    n = y.shape[1]
+    m = y.shape[1]
 
-    # Compute log probabilities
-    logprobs = np.multiply(-np.log(a2 + epsilon), y)
-    cost = np.mean(logprobs)
+    # Compute the cross-entropy cost
+    cost = -np.sum(y * np.log(a2 + epsilon)) / m
 
-    # Compute regularization term
-    regularized_cost = np.divide(penalty, np.multiply(2, n)) * (np.sum(np.square(W1)) + np.sum(np.square(W2)))
+    # L-2 regularization
+    regularized_cost = (penalty / (2 * m)) * (np.sum(W1 ** 2) + np.sum(W2 ** 2))
     total_cost = cost + regularized_cost
 
     return total_cost
@@ -114,7 +113,7 @@ def initialize_adam(parameters):
 
 
 
-def update_parameters(parameters, gradients, velocity, cache, learning_rate, decay_rate, current_iteration, momentum_coefficient=0.9, rmsprop_coefficient=0.999, epsilon=1e-8):
+def update_parameters(parameters, gradients, velocity, cache, learning_rate, decay_rate, current_iteration, t, momentum_coefficient=0.9, rmsprop_coefficient=0.999, epsilon=1e-8):
 
     # beta1 and beta2 based on specified coefficients
     beta1 = momentum_coefficient
@@ -130,11 +129,11 @@ def update_parameters(parameters, gradients, velocity, cache, learning_rate, dec
     for parameter in parameters:
 
         velocity[parameter] = beta1 * velocity[parameter] + (1 - beta1) * gradients['d' + parameter]
-        corrected_velocity[parameter] = velocity[parameter] / (1 - beta1)
+        corrected_velocity[parameter] = velocity[parameter] / (1 - beta1 ** t)
 
         cache[parameter] = beta2 * cache[parameter] + (1 - beta2) * (gradients['d' + parameter] ** 2)
-        corrected_cache[parameter] = cache[parameter] / (1 - beta2)
+        corrected_cache[parameter] = cache[parameter] / (1 - beta2 ** t)
 
-        parameters[parameter] -= learning_rate_decay * corrected_velocity[parameter] / (np.sqrt(corrected_cache[parameter]) + epsilon)
+        parameters[parameter] -= learning_rate_decay * (corrected_velocity[parameter] / (np.sqrt(corrected_cache[parameter]) + epsilon))
 
     return parameters, velocity, cache
