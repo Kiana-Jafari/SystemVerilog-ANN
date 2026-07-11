@@ -2,8 +2,7 @@ module neuron #(
     parameter int N_INPUTS = 2,
                 INPUT_WIDTH = 16,
                 DATA_WIDTH = 16,
-                ACC_WIDTH = 32,
-                SHIFT_FACTOR = 12
+                ACC_WIDTH = 32
 ) (
 
     input logic signed [INPUT_WIDTH-1:0] x[N_INPUTS],
@@ -12,6 +11,8 @@ module neuron #(
 
     output logic signed [ACC_WIDTH-1:0] z
 );
+
+    localparam int SHIFT_FACTOR = 12; // fractional bits, must match Q-format
 
     always_comb begin : linear_operation
         
