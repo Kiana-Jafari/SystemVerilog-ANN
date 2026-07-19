@@ -92,7 +92,6 @@ module network #(
                         neuron_idx <= 0;
                         input_idx <= 0;
                         acc <= 0;
-                        done <= 0;
 
                     end
 
