@@ -83,6 +83,8 @@ module network #(
             case(state)
 
                 IDLE : begin
+
+                    done <= 0;
                     
                     if (start) begin
                         
@@ -93,6 +95,7 @@ module network #(
                         done <= 0;
 
                     end
+
                 end
 
                 HIDDEN_MAC : begin
