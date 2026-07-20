@@ -6,8 +6,12 @@ module network_tb;
     localparam int DATA_WIDTH = 16;
     localparam int ACC_WIDTH = 48;
     localparam int N_SAMPLES = 57;
+    int correct_predictions;
+    int incorrect_predictions;
+    real accuracy;
 
-    logic signed [DATA_WIDTH-1:0] X_test [N_INPUTS][N_SAMPLES];
+    logic signed [DATA_WIDTH-1:0] X_test[N_INPUTS][N_SAMPLES];
+    logic y_test[N_SAMPLES];
 
     initial begin : Test_Samples
         X_test[0] = '{
@@ -18,7 +22,7 @@ module network_tb;
             -1223, -2408, -1713, -1279, -734, -2464, -1340, -761,
             -2325, -1307, 1125, -2303, -1674, -1930, 1765, -1557,
             -1168, -1357, -2191, -639, 980
-            };
+        };
             
         X_test[1] = '{
             -1200, -2437, -1452, 432, -1479, -405, 3751, -2736, -1088,
@@ -28,7 +32,20 @@ module network_tb;
             1138, -3361, -1646, -1041, -1041, -1534, 21, -2154, -2487,
             -2693, 1184, -1367, -1506, -1685, -863, -297, 1173, -2608,
             1014, -3144, -1584
-            };
+        };
+
+        y_test = '{
+            0, 1, 0, 0, 0, 1, 0, 1, 1, 1,
+            1, 0, 0, 0, 1, 0, 1, 1, 1, 1,
+            0, 1, 1, 1, 0, 1, 1, 1, 0, 1,
+            1, 0, 1, 1, 1, 1, 0, 1, 1, 1,
+            0, 1, 0, 1, 1, 1, 0, 1, 1, 1,
+            0, 0, 0, 1, 0, 1, 1
+        };
+
+        correct_predictions = 0;
+        incorrect_predictions = 0;
+
     end
 
     // Inputs
@@ -134,15 +151,35 @@ module network_tb;
             // wait until computation finishes
             @(posedge done);
 
+            if (pred_class == y_test[i]) begin
+
+                correct_predictions ++;
+
+            end
+
+            else begin
+                
+                incorrect_predictions ++;
+
+            end
+
             $display("Sample %0d:", i);
             $display("x = [%0d, %0d]", x[0], x[1]);
             $display("h = %p", dut.h);
             $display("z2 = %p", z2);
-            $display("pred_class = %0d\n", pred_class);
+            $display("Prediction = %0d", pred_class);
+            $display("Ground Truth: = %0d\n", y_test[i]);
 
         end
 
+        accuracy = (100.0 * correct_predictions) / N_SAMPLES;
+
+        $display("# correct predictions: %0d", correct_predictions);
+        $display("# incorrect predictions: %0d", incorrect_predictions);
+        $display("accuracy: %.2f", accuracy);
+
         $finish;
+
     end
 
     // Waveform dump
