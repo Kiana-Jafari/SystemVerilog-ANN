@@ -189,6 +189,8 @@ module network #(
 
                 end
 
+                default : state <= IDLE;
+
             endcase
         end 
     end
