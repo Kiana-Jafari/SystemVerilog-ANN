@@ -131,6 +131,8 @@ The sequential implementation produces identical predictions to the combinationa
 
 The sequential implementation demonstrates the trade-off between execution speed and hardware resource utilization by reusing arithmetic hardware across multiple clock cycles.
 
+A summary of the model perfomance on the test set can be found on <a href='https://github.com/Kiana-Jafari/SystemVerilog-ANN/blob/main/docs/Performance/performance.csv'>docs/Performance/Performance.csv</a>
+
 ---
 
 ## Future Work
