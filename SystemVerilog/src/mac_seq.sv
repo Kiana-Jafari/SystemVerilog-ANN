@@ -4,13 +4,8 @@ module mac_seq(
     input logic reset,
     input logic signed [3:0] X,
     input logic signed [3:0] w,
-    output logic signed [7:0] acc
+    output logic signed [16:0] acc
 );
-
-// combinational multiplier-term
-
-logic signed [7:0] product;
-assign product = X * w;
 
 // sequential register (memory)
 
@@ -19,7 +14,7 @@ always_ff @(posedge clk) begin : MAC
     if (reset)
         acc <= 0;
     else
-        acc <= acc + product;
+        acc <= acc + (X * w);
 
 end
 
