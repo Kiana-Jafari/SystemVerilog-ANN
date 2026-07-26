@@ -4,7 +4,7 @@ module mac_seq(
     input logic reset,
     input logic signed [3:0] X,
     input logic signed [3:0] w,
-    output logic signed [16:0] acc
+    output logic signed [15:0] acc
 );
 
 // sequential register (memory)

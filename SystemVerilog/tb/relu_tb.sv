@@ -1,7 +1,7 @@
 module relu_tb;
 
-logic signed [7:0] in;
-logic signed [7:0] out;
+logic signed [15:0] in;
+logic signed [15:0] out;
 
 relu dut(
     .in(in),

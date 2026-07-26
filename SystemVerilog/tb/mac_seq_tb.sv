@@ -4,7 +4,7 @@ logic clk;
 logic reset;
 logic signed [3:0] X;
 logic signed [3:0] w;
-logic signed [7:0] acc;
+logic signed [15:0] acc;
 
 // Design Under Test (DUT)
 mac_seq dut(
